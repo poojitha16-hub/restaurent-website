@@ -611,19 +611,7 @@
   </script>
   <script src="script.js"></script>
   <script>
-// === MOBILE NAVBAR TOGGLE ===
-const nav = document.querySelector("nav");
-let menuToggle = document.querySelector(".menu-toggle");
-if (!menuToggle) {
-  menuToggle = document.createElement("div");
-  menuToggle.className = "menu-toggle";
-  menuToggle.innerHTML = "☰";
-  nav.prepend(menuToggle);
-}
 
-menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("open");
-});
 
 // === FIX BUTTON OVERLAP / SHOW ONLY ONE BUTTON ===
 const bookTableBtn = document.getElementById("bookTableBtn");
@@ -716,18 +704,6 @@ if (allMaps.length > 1) {
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 if (scrollTopBtn) scrollTopBtn.remove();
 </script>
-<!-- ===== Mobile Navbar Toggle Script ===== -->
-<script>
-  const menuToggle = document.createElement("div");
-  menuToggle.classList.add("menu-toggle");
-  menuToggle.innerHTML = "&#9776;"; // hamburger icon
-  document.querySelector(".navbar").prepend(menuToggle);
-
-  const navLinks = document.querySelector(".nav-links");
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-</script>
 <!-- ===== FIND US SECTION ===== -->
 <section id="find-us">
   <h2 class="section-title">Find Us</h2>
@@ -745,7 +721,70 @@ if (scrollTopBtn) scrollTopBtn.remove();
     </iframe>
   </div>
 </section>
+  <script>
+// Navbar toggle fix
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.createElement("div");
+  menuToggle.classList.add("menu-toggle");
+  menuToggle.innerHTML = "&#9776;"; // hamburger icon
+
+  const navbar = document.querySelector(".navbar");
+  const navLinks = document.querySelector(".nav-links");
+
+  // Append toggle button only on mobile
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      if (!navbar.contains(menuToggle)) navbar.appendChild(menuToggle);
+    } else {
+      if (navbar.contains(menuToggle)) navbar.removeChild(menuToggle);
+      navLinks.classList.remove("active"); // close menu if open
+    }
+  }
+
+  handleResize();
+  window.addEventListener("resize", handleResize);
+
+  // Toggle menu open/close
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+});
+</script>
+<style>
+  .menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+</style>
+
+  
+
 
 </body>
 </html>
+
 
