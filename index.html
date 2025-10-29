@@ -983,9 +983,119 @@ setInterval(() => {
   });
 </script>
 <!-- ======= END PREMIUM RESPONSIVE PATCH ======= -->
+<!-- ✅ Responsive Fixes + Mobile Navbar -->
+<script>
+  // --- MOBILE NAVBAR TOGGLE ---
+  const menuBtn = document.createElement('div');
+  menuBtn.innerHTML = '&#9776;';
+  menuBtn.id = 'menu-toggle';
+  menuBtn.style.cssText = `
+    font-size: 28px;
+    color: gold;
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+  `;
+  document.body.appendChild(menuBtn);
+
+  const nav = document.querySelector('nav') || document.querySelector('.navbar');
+  if (nav) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+    });
+  }
+
+  // --- REMOVE DUPLICATE MAP IF EXISTS ---
+  window.addEventListener('DOMContentLoaded', () => {
+    const maps = document.querySelectorAll('iframe[src*="google.com/maps"]');
+    if (maps.length > 1) {
+      for (let i = 1; i < maps.length; i++) maps[i].remove();
+    }
+  });
+</script>
+
+<style>
+/* ✅ MOBILE RESPONSIVENESS FIXES */
+@media (max-width: 900px) {
+  nav, .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(183, 28, 28, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transform: translateY(-120%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+  }
+
+  nav.nav-open, .navbar.nav-open {
+    transform: translateY(0);
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav a, .navbar a {
+    color: white !important;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+  }
+
+  section, .container, .content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .menu-page, .menu-item, .flipbook, .gallery img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .contact, .about, .footer {
+    text-align: center;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: 250px !important;
+  }
+
+  .btn, button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1200px) and (min-width: 900px) {
+  .menu-page, .menu-item {
+    width: 48%;
+  }
+}
+</style>
 
 </body>
 </html>
+
 
 
 
