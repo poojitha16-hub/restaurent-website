@@ -14,26 +14,29 @@
 </head>
 <body>
 
-  <!-- HOME SECTION -->
-  <div class="home-section" id="home">
-    <nav class="navbar">
-      <div class="logo-with-text">
-        <img src="images/dhabalogo2.jpg" alt="Logo" class="logo dhaba-logo" />
-        
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menuWrapper" onclick="openBook()">Menu</a></li>
-        <li><a href="#order-section">Order Online</a></li>
-        <li><a href="#gallery">Ambiance</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#catering">Catering</a></li>
-           <li><a href="#Book a table">Book a table</a></li>
-           <li><a href="#contact">Contact</a></li>
+ <!-- HOME SECTION -->
+<div class="home-section" id="home">
+  <nav class="navbar">
+    <div class="logo-with-text">
+      <img src="images/dhabalogo2.jpg" alt="Logo" class="logo dhaba-logo" />
+    </div>
 
-      </ul>
-    </nav>
+    <!-- HAMBURGER ICON (visible only on mobile) -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menuWrapper" onclick="openBook()">Menu</a></li>
+      <li><a href="#order-section">Order Online</a></li>
+      <li><a href="#gallery">Ambiance</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#Book a table">Book a table</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
 
     <div class="hero">
       <div class="hero-content">
@@ -611,4 +614,5 @@
   </script>
   <script src="script.js"></script>
 </body>
+
 </html>
