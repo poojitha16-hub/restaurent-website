@@ -610,5 +610,62 @@
     }
   </script>
   <script src="script.js"></script>
+  <!-- ========= PREMIUM UPGRADES START ========= -->
+
+<!-- 🌟 Smooth Scroll & AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+</script>
+<!-- Use in sections like: <section data-aos="fade-up"> -->
+
+<!-- 🍽️ Floating Book Table Button -->
+<a href="#contact" 
+   style="position:fixed; bottom:25px; right:25px; 
+          background:linear-gradient(45deg, #b71c1c, gold); color:white; 
+          padding:14px 22px; border-radius:50px; box-shadow:0 0 10px rgba(0,0,0,0.4); 
+          text-decoration:none; font-weight:bold; z-index:1000; transition:0.3s;">
+  🍽️ Book a Table
+</a>
+
+<!-- ⬆️ Scroll-to-Top Button -->
+<button id="scrollTopBtn" 
+        style="display:none; position:fixed; bottom:25px; left:25px; z-index:1000;
+               background:gold; color:#b71c1c; border:none; padding:12px 16px; border-radius:50%; 
+               font-size:18px; box-shadow:0 0 10px rgba(0,0,0,0.3); cursor:pointer;">
+  ↑
+</button>
+
+<script>
+const topBtn = document.getElementById("scrollTopBtn");
+window.onscroll = function() {
+  topBtn.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+};
+topBtn.onclick = function() {
+  window.scrollTo({top:0, behavior:'smooth'});
+};
+</script>
+
+<!-- 📍 Google Map Embed -->
+<div style="margin-top:60px; text-align:center;">
+  <h3 style="color:#b71c1c;">Find Us</h3>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.088785287322!2d72.833918!3d19.180216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDExJzEzLjAiTiA3MsKwNTAnMDIuMSJF!5e0!3m2!1sen!2sin!4v0000000000000"
+    width="90%" height="300" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+
+<!-- ⚜️ Premium Footer -->
+<footer style="background:#b71c1c; color:white; text-align:center; padding:10px 0; margin-top:40px; font-size:14px;">
+  © 2025 Sri Vengamamba Punjabi Family Dhaba | Designed by <b>Poojitha Uppala</b>
+</footer>
+
+<!-- ========= PREMIUM UPGRADES END ========= -->
+
 </body>
 </html>
+
