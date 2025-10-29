@@ -1212,5 +1212,58 @@ body {
     height: auto;
   }
 }
+/* ---------- MOBILE NAVBAR TOGGLE ---------- */
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* For mobile screens only */
+@media (max-width: 768px) {
+  /* Show the hamburger button */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Hide the nav links initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #8b0000; /* dhaba red */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* When active, show the links */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .nav-links li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover {
+    color: #d4af37; /* golden hover effect */
+  }
+}
+
 
 
