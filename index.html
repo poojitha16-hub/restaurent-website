@@ -757,34 +757,55 @@ document.addEventListener("DOMContentLoaded", () => {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: var(--primary);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 15px 0;
-    text-align: center;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff7f5; /* soft background */
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding: 0;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-top: 2px solid var(--gold);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
 }
 
+.nav-links.active {
+  padding: 15px 0;
+  max-height: 400px; /* enough to show all links */
+  opacity: 1;
+}
+
+.nav-links a {
+  color: var(--primary);
+  font-weight: 600;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-bright);
+}
+
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+    max-height: none;
+    opacity: 1;
+    position: static;
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
+}
 </style>
-
-  
-
-
 </body>
 </html>
+
 
 
