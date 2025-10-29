@@ -965,3 +965,33 @@ body {
   font-size: 1.1rem;
   color: #5e3520;
 }
+/* ===== MAP SECTION ===== */
+#find-us {
+  background: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#find-us p {
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.map-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #find-us {
+    padding: 60px 15px;
+  }
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
