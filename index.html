@@ -21,6 +21,9 @@
       <img src="images/dhabalogo2.jpg" alt="Logo" class="logo dhaba-logo" />
     </div>
 
+    <!-- Hamburger icon (mobile only) -->
+    <button class="nav-toggle" id="navToggle">☰</button>
+
     <ul class="nav-links" id="navMenu">
       <li><a href="#home">Home</a></li>
       <li><a href="#menuWrapper" onclick="openBook()">Menu</a></li>
@@ -34,6 +37,7 @@
     </ul>
   </nav>
 </div>
+
 
     <div class="hero">
       <div class="hero-content">
@@ -613,9 +617,16 @@
 
   </script>
   <script src="script.js"></script>
+  <script>
+  document.getElementById("navToggle").addEventListener("click", function() {
+    document.getElementById("navMenu").classList.toggle("active");
+  });
+</script>
+
 </body>
 
 </html>
+
 
 
 
