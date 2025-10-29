@@ -1177,35 +1177,25 @@ body {
    MOBILE NAVBAR (Responsive)
    ============================== */
 @media (max-width: 768px) {
-  /* Hide nav links by default on mobile */
   .nav-links {
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: #5a3310; /* matches your navbar */
+    background-color: #5a3310;
     width: 100%;
     position: absolute;
-    top: 80px; /* adjust if your navbar height changes */
+    top: 80px;
     left: 0;
     z-index: 1000;
     padding: 15px 0;
     gap: 10px;
   }
 
-  /* Show nav links when active */
   .nav-links.active {
     display: flex;
     animation: slideDown 0.3s ease forwards;
   }
 
-  /* Navbar layout adjustments */
-  .navbar {
-    position: relative;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-
-  /* Show the toggle button */
   .nav-toggle {
     display: block;
     font-size: 28px;
@@ -1215,21 +1205,12 @@ body {
     cursor: pointer;
   }
 
-  /* Logo stays left */
-  .logo-with-text {
-    display: flex;
+  .navbar {
+    position: relative;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
   }
 
-  /* Hide desktop nav links by default */
-  .nav-links li a {
-    color: #f5d7a3;
-    font-size: 18px;
-    text-decoration: none;
-  }
-
-  /* Add simple animation */
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -1242,7 +1223,6 @@ body {
   }
 }
 
-/* Desktop (default): hide toggle button */
 .nav-toggle {
-  display: none;
+  display: none; /* Hide by default (desktop) */
 }
