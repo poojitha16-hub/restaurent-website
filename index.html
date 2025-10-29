@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Vengamamba Punjabi Family Dhaba</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HOME SECTION -->
+  <div class="home-section" id="home">
+    <nav class="navbar">
+      <div class="logo-with-text">
+        <img src="images/dhabalogo2.jpg" alt="Logo" class="logo dhaba-logo" />
+        
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menuWrapper" onclick="openBook()">Menu</a></li>
+        <li><a href="#order-section">Order Online</a></li>
+        <li><a href="#gallery">Ambiance</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#catering">Catering</a></li>
+           <li><a href="#Book a table">Book a table</a></li>
+           <li><a href="#contact">Contact</a></li>
+
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1 id="hero-heading">Sri Vengamamba Punjabi Family Dhaba</h1>
+        <div class="hero-rating">★★★★★</div>
+        <p id="hero-intro">Authentic Punjabi flavors served with warmth and tradition.</p>
+        <p id="hero-quote">“Where every meal feels like home.”</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Screen -->
+  <div class="welcome-screen" id="welcomeScreen">
+    <div class="cover-overlay">
+      <img src="images/dhabalogo2.jpg" alt="Dhaba Logo" class="dhaba-logo">
+      <h2>Welcome to</h2>
+      <h1>Sri Vengamamba</h1>
+      <h3>Punjabi Family Dhaba</h3>
+      <button onclick="openBook()">Open Menu Book</button>
+    </div>
+  </div>
+
+  <!-- MENU SECTION -->
+  <div id="menuWrapper">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search menu...">
+      <button onclick="searchMenu()">Go</button>
+    </div>
+
+    <div class="book-spread" id="bookSpread">
+      <div class="page" id="leftPage"></div>
+      <div class="page" id="rightPage"></div>
+    </div>
+
+    <div class="controls" id="menuControls" style="display: none;">
+      <button onclick="prevSpread()">Previous</button>
+      <button onclick="nextSpread()">Next</button>
+      <button id="closeBookBtn" onclick="closeBook()">Close Book</button>
+    </div>
+  </div>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" style="display: none; position: fixed; bottom: 20px; right: 20px; padding: 10px 15px; font-size: 16px; background-color: #f4c430; color: black; border: none; border-radius: 5px; cursor: pointer; z-index: 1000;">
+    ↑ Top
+  </button>
+  <!-- ===== Order Online Section ===== -->
+<section id="order-section" class="order-section">
+  <h2>🛒 Place Your Order</h2>
+  <p>Select your favorite dishes and submit your order below.</p>
+
+  <form class="order-form">
+    <label for="dish">Choose a Dish:</label>
+    <select id="dish" name="dish">
+      <option>Tandoori Platter</option>
+      <option>Punjabi Thali</option>
+      <option>Butter Naan & Paneer</option>
+      <option>Sweet Lassi</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" />
+
+    <label for="notes">Special Instructions:</label>
+    <textarea id="notes" name="notes" placeholder="E.g. less spicy, extra chutney"></textarea>
+
+    <button type="submit" class="submit-order-btn">Submit Demo Order</button>
+  </form>
+</section>
+<!-- ===== Cart Summary & Delivery Estimate ===== -->
+<div class="cart-summary">
+  <h3>🧾 Your Cart Summary</h3>
+  <ul>
+    <li><strong>Dish:</strong> <span id="cart-dish">—</span></li>
+    <li><strong>Quantity:</strong> <span id="cart-qty">—</span></li>
+    <li><strong>Instructions:</strong> <span id="cart-notes">—</span></li>
+  </ul>
+  <p class="delivery-estimate">🚚 Estimated Delivery: <strong>30–45 minutes</strong></p>
+</div>
+
+<script>
+  document.querySelector(".order-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Demo order submitted! (No real order placed)");
+  });
+</script>
+<script>
+  document.querySelector(".order-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Get values
+    const dish = document.getElementById("dish").value;
+    const qty = document.getElementById("quantity").value;
+    const notes = document.getElementById("notes").value || "None";
+
+    // Update cart summary
+    document.getElementById("cart-dish").textContent = dish;
+    document.getElementById("cart-qty").textContent = qty;
+    document.getElementById("cart-notes").textContent = notes;
+
+    alert("Demo order submitted! (No real order placed)");
+  });
+</script>
+
+ <!-- ===== Dhaba Gallery Section ===== -->
+<section class="gallery-section" id="gallery">
+  <h2 class="gallery-heading">✨ Explore Our Golden Dhaba ✨</h2>
+
+  <!-- Ambiance & Decor -->
+  <div class="gallery-category">
+    <h3 class="category-title">Ambiance & Decor</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="zoom-in">
+        <img src="images/ambiance1.png" alt="Cozy Interior" />
+        <p class="caption">Cozy Interior</p>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in">
+        <img src="images/ambiance2.png" alt="Lantern Glow" />
+        <p class="caption">Lantern Glow</p>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in">
+        <img src="images/ambiance3.png" alt="Traditional Wall Art" />
+        <p class="caption">Traditional Wall Art</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Food Highlights -->
+  <div class="gallery-category">
+    <h3 class="category-title">Food Highlights</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="images/food1.png" alt="Tandoori Platter" />
+        <p class="caption">Tandoori Platter</p>
+      </div>
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="images/food2.png" alt="Dessert Delight" />
+        <p class="caption">Dessert Delight</p>
+      </div>
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="images/food3.png" alt="Punjabi Thali" />
+        <p class="caption">Punjabi Thali</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outdoor & Family Spaces -->
+  <div class="gallery-category">
+    <h3 class="category-title">Outdoor & Family Spaces</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="fade-right">
+        <img src="images/outdoor1.png" alt="Garden Seating" />
+        <p class="caption">Garden Seating</p>
+      </div>
+      <div class="gallery-item" data-aos="fade-right">
+        <img src="images/outdoor2.png" alt="Family Dining" />
+        <p class="caption">Family Dining</p>
+      </div>
+      <div class="gallery-item" data-aos="fade-right">
+        <img src="images/outdoor3.png" alt="Evening Lights" />
+        <p class="caption">Evening Lights</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kids Playzone -->
+  <div class="gallery-category">
+    <h3 class="category-title">Kids Playzone <span class="family-badge">Perfect for Families</span></h3>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="flip-left">
+        <img src="images/playzone1.png" alt="Slides" />
+        <p class="caption">Slides</p>
+      </div>
+      <div class="gallery-item" data-aos="flip-left">
+        <img src="images/playzone2.png" alt="Swings" />
+        <p class="caption">Swings</p>
+      </div>
+      <div class="gallery-item" data-aos="flip-left">
+        <img src="images/playzone3.png" alt="Play Area" />
+        <p class="caption">Play Area</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+ <!-- ===== Features Section ===== -->
+<section id="features-scroll" class="features-section">
+  <button id="openFeatures" class="open-features-btn">✨ View Our Magical Features</button>
+
+  <div id="features" class="scroll-panel hidden">
+    <div class="features-content">
+      <h2>Why Choose Us?</h2>
+      <ul class="features-list">
+        <li>✅ All You Can Eat Buffet</li>
+        <li>🌿 Outdoor Seating with Green Ambiance</li>
+        <li>🛋 Private Dining Rooms for Families</li>
+        <li>🎉 Kids Play Area & Group Dining</li>
+        <li>💳 Credit Cards Accepted</li>
+        <li>🚗 Plenty of Parking Space</li>
+      </ul>
+      <button id="closeFeatures" class="close-features-btn">Close Features</button>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- Toggle Script -->
+<script>
+  document.getElementById("openFeatures").addEventListener("click", function () {
+    const panel = document.getElementById("features");
+    panel.classList.remove("hidden");
+    panel.classList.add("show");
+  });
+
+  document.getElementById("closeFeatures").addEventListener("click", function () {
+    const panel = document.getElementById("features");
+    panel.classList.remove("show");
+    panel.classList.add("hidden");
+  });
+</script>
+
+  <!-- ===== Review Section ===== -->
+<section class="review-section" id="reviews">
+  <h2 class="review-heading">💬 What Our Guests Say</h2>
+
+  <div class="review-grid">
+    <div class="review-card" data-aos="fade-up">
+      <h3 class="review-name">Ravi Sharma</h3>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">“The ambiance is magical and the food is unforgettable. Feels like home with a golden glow!”</p>
+    </div>
+
+    <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="review-name">Ananya Patel</h3>
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">“Loved the outdoor seating and the lantern-lit decor. Perfect for family dinners!”</p>
+    </div>
+
+    <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="review-name">Kabir Mehta</h3>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">“The kids playzone kept our little ones happy while we enjoyed the thali. Highly recommended!”</p>
+    </div>
+  </div>
+
+  <div class="review-button-wrapper" data-aos="zoom-in">
+    <a href="#review-form" class="review-button">Write a Review</a>
+  </div>
+</section>
+
+<!-- ===== Review Submission Form ===== -->
+<section class="review-form-section" id="review-form">
+  <h2 class="review-heading">📝 Share Your Experience</h2>
+
+  <form class="review-form" onsubmit="handleReviewSubmit(event)">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <select id="rating" required>
+        <option value="">Select</option>
+        <option value="5">★★★★★ - Excellent</option>
+        <option value="4">★★★★☆ - Very Good</option>
+        <option value="3">★★★☆☆ - Good</option>
+        <option value="2">★★☆☆☆ - Fair</option>
+        <option value="1">★☆☆☆☆ - Poor</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Review</label>
+      <textarea id="message" rows="4" placeholder="Tell us what you loved..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-button">Submit Review</button>
+    <p id="thank-you-message" class="thank-you-message" style="display:none;">💛 Thank you for your review!</p>
+  </form>
+</section>
+
+<!-- ===== Reservation & Catering Section ===== -->
+<section id="booking-catering" style="background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') no-repeat center center fixed; background-size: cover; padding: 60px 0;">
+
+  <style>
+    #booking-catering * {
+      box-sizing: border-box;
+    }
+
+    #booking-catering header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 10px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    #booking-catering h1 {
+      color: #b22222;
+      font-family: 'Georgia', serif;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    #booking-catering p {
+      color: #333;
+      font-size: 18px;
+    }
+
+    .button-group {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200px 0; }
+      100% { background-position: 200px 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .toggle-btn {
+      position: relative;
+      overflow: hidden;
+      padding: 12px 28px;
+      margin: 10px;
+      background-image: linear-gradient(120deg, #b22222 0%, #ff6347 50%, #b22222 100%);
+      background-size: 200% auto;
+      animation: shimmer 2s linear infinite;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+    }
+
+    .toggle-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 215, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(255, 215, 0, 0.3));
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    .toggle-btn:hover::after {
+      left: 0;
+    }
+
+    .form-container {
+      display: none;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 35px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .form-container.show {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .form-container h2 {
+      color: #b22222;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      background-color: #fdfdfd;
+    }
+
+    button[type="submit"] {
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #b22222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #8b1a1a;
+    }
+
+    @media (max-width: 600px) {
+      .toggle-btn {
+        width: 90%;
+        font-size: 15px;
+      }
+
+      .form-container {
+        padding: 25px;
+      }
+    }
+  </style>
+
+    <header>
+  <h1 style="color: #FFD700; text-shadow: 1px 1px 2px #5c2e00;">Welcome to Our Restaurant</h1>
+  <p style="color: #4b2e1e; font-weight: bold;">Book a table or request catering for your next event</p>
+</header>
+
+  <div class="button-group">
+    <button class="toggle-btn" onclick="toggleForm('reservation-form')">Book a Table</button>
+    <button class="toggle-btn" onclick="toggleForm('catering-form')">Catering Request</button>
+  </div>
+
+  <!-- Reservation Form -->
+  <form id="reservation-form" class="form-container" action="https://formspree.io/f/your-reservation-form-id" method="POST">
+    <h2>Book a Table</h2>
+    <label for="resName">Full Name:</label>
+    <input type="text" id="resName" name="resName" required>
+
+    <label for="resEmail">Email Address:</label>
+    <input type="email" id="resEmail" name="resEmail" required>
+
+    <label for="resPhone">Phone Number:</label>
+    <input type="tel" id="resPhone" name="resPhone" required>
+
+    <label for="resDate">Reservation Date:</label>
+    <input type="date" id="resDate" name="resDate" required>
+
+    <label for="resTime">Reservation Time:</label>
+    <input type="time" id="resTime" name="resTime" required>
+
+    <label for="resGuests">Number of Guests:</label>
+    <input type="number" id="resGuests" name="resGuests" required>
+
+    <button type="submit" id="reservation-submit">Book Now</button>
+  </form>
+
+  <!-- Catering Form -->
+  <form id="catering-form" class="form-container" action="https://formspree.io/f/your-catering-form-id" method="POST">
+    <h2>Catering Request</h2>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="eventDate">Event Date:</label>
+    <input type="date" id="eventDate" name="eventDate" required>
+
+    <label for="guests">Number of Guests:</label>
+    <input type="number" id="guests" name="guests" required>
+
+    <label for="menu">Select Menu Items:</label>
+    <select id="menu" name="menu[]" multiple required>
+      <option value="Paneer Tikka">Paneer Tikka</option>
+      <option value="Butter Chicken">Butter Chicken</option>
+      <option value="Veg Biryani">Veg Biryani</option>
+      <option value="Dal Makhani">Dal Makhani</option>
+      <option value="Gulab Jamun">Gulab Jamun</option>
+    </select>
+
+    <label for="message">Additional Details:</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit" id="catering-submit">Submit Catering Request</button>
+  </form>
+
+</section>
+
+<!-- Scripts -->
+<script>
+  function toggleForm(formId) {
+    const forms = document.querySelectorAll('.form-container');
+    forms.forEach(form => {
+      form.style.display = 'none';
+      form.classList.remove('show');
+    });
+
+    const selectedForm = document.getElementById(formId);
+    selectedForm.style.display = 'block';
+    selectedForm.classList.add('show');
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const forms = document.querySelectorAll("form");
+    forms.forEach(form => {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        showPopup();
+        setTimeout(() => {
+          form.submit();
+        }, 1500);
+      });
+    });
+  });
+
+  function showPopup() {
+    const popup = document.createElement("div");
+    popup.textContent = "✅ Thank you! Your request has been submitted.";
+    popup.style.position = "fixed";}
+    </script
+   
+<!-- ===== Contact Section ===== -->
+<section id="contact" class="scroll-contact">
+  <h2>Contact Us</h2>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="info-block">
+        <h3>📞 Call Us</h3>
+        <p>**********</p>
+        <p>**********</p>
+      </div>
+      <div class="info-block">
+        <h3>📍 Location</h3>
+        <p>Nellore Golagamudi Anikepalli Rd, Nellore, Andhra Pradesh 524003</p>
+      </div>
+      <div class="info-block">
+        <h3>🕒 Business Hours</h3>
+        <p>Mon – Sat: 11 am – 11:30 pm</p>
+        <!--<p>Sat, Sun: Closed</p>-->
+      </div>
+    </div>
+
+    <form class="contact-form">
+      <input type="email" placeholder="Enter a valid email address" required />
+      <input type="text" placeholder="Enter your name" required />
+      <input type="text" placeholder="Enter your address" required />
+      <textarea rows="4" placeholder="Enter your message" required></textarea>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Sri Vengamamba Punjabi Family Dhaba | Designed with ❤</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 800 });
+
+    function handleReviewSubmit(event) {
+      event.preventDefault();
+      document.getElementById("thank-you-message").style.display = "block";
+      event.target.reset();
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
