@@ -21,10 +21,7 @@
       <img src="images/dhabalogo2.jpg" alt="Logo" class="logo dhaba-logo" />
     </div>
 
-    <!-- HAMBURGER ICON (visible only on mobile) -->
-    <button class="nav-toggle" id="navToggle">☰</button>
-
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links" id="navMenu">
       <li><a href="#home">Home</a></li>
       <li><a href="#menuWrapper" onclick="openBook()">Menu</a></li>
       <li><a href="#order-section">Order Online</a></li>
@@ -38,7 +35,6 @@
   </nav>
 </div>
 
-  
     <div class="hero">
       <div class="hero-content">
         <h1 id="hero-heading">Sri Vengamamba Punjabi Family Dhaba</h1>
@@ -612,14 +608,6 @@
       document.getElementById("thank-you-message").style.display = "block";
       event.target.reset();
     }
-    <script>
-  const navToggle = document.getElementById("navToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-</script>
 
 </script>
 
@@ -628,5 +616,6 @@
 </body>
 
 </html>
+
 
 
