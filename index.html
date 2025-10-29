@@ -611,8 +611,18 @@
       document.getElementById("thank-you-message").style.display = "block";
       event.target.reset();
     }
+    <script>
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
   </script>
   <script src="script.js"></script>
 </body>
 
 </html>
+
