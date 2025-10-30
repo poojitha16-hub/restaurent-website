@@ -965,6 +965,33 @@ body {
   font-size: 1.1rem;
   color: #5e3520;
 }
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 /* ===== MAP SECTION ===== */
 #find-us {
   background: #fff;
@@ -994,4 +1021,3 @@ body {
     height: 300px;
   }
 }
-
