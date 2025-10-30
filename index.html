@@ -611,117 +611,6 @@
   </script>
   <script src="script.js"></script>
   <script>
-
-
-// === FIX BUTTON OVERLAP / SHOW ONLY ONE BUTTON ===
-const bookTableBtn = document.getElementById("bookTableBtn");
-const closeBookBtn = document.getElementById("closeBookBtn");
-const menuControls = document.getElementById("menuControls");
-const menuWrapper = document.getElementById("menuWrapper");
-
-function updateButtonVisibility() {
-  if (menuWrapper && menuWrapper.style.display === "block") {
-    bookTableBtn.style.display = "none";
-    closeBookBtn.style.display = "inline-block";
-    menuControls.style.display = "flex";
-  } else {
-    bookTableBtn.style.display = "inline-block";
-    closeBookBtn.style.display = "none";
-    menuControls.style.display = "none";
-  }
-}
-
-if (bookTableBtn && closeBookBtn) {
-  bookTableBtn.addEventListener("click", () => {
-    setTimeout(updateButtonVisibility, 300);
-  });
-  closeBookBtn.addEventListener("click", () => {
-    setTimeout(updateButtonVisibility, 300);
-  });
-}
-updateButtonVisibility();
-
-// === REMOVE EXTRA SPACE BELOW HOME PAGE ===
-document.addEventListener("DOMContentLoaded", () => {
-  const home = document.getElementById("home");
-  const menu = document.getElementById("menu");
-  if (home && menu) home.style.marginBottom = "0";
-});
-
-// === FIX CATEGORY TEXT COLOR FOR VISIBILITY ===
-const catTitles = document.querySelectorAll(".category-title");
-catTitles.forEach(el => {
-  el.style.color = "#f7d64a";
-  el.style.fontWeight = "700";
-});
-
-// === ALIGN MENU ITEMS NEATLY ===
-const menuLists = document.querySelectorAll("#leftPage ul li, #rightPage ul li");
-menuLists.forEach(li => {
-  li.style.display = "flex";
-  li.style.justifyContent = "space-between";
-  li.style.gap = "10px";
-});
-
-// === FIX FEATURES SECTION ===
-const openFeat = document.getElementById("openFeatures");
-const closeFeat = document.getElementById("closeFeatures");
-const featSection = document.getElementById("features");
-
-if (openFeat && closeFeat && featSection) {
-  closeFeat.addEventListener("click", () => {
-    featSection.classList.remove("open");
-    featSection.style.display = "none";
-    openFeat.style.display = "block";
-  });
-  openFeat.addEventListener("click", () => {
-    featSection.style.display = "block";
-    setTimeout(() => featSection.classList.add("open"), 300);
-  });
-}
-
-// === FIX STICKY FORM HEADER ===
-const formHeaders = document.querySelectorAll(".booking-header, .catering-header");
-formHeaders.forEach(header => {
-  header.style.position = "relative";
-});
-
-// === SHOW REVIEWS IMMEDIATELY ===
-const reviews = document.getElementById("reviews");
-if (reviews) reviews.style.opacity = "1";
-
-// === REMOVE DUPLICATE FOOTER / MAP ===
-const allFooters = document.querySelectorAll("footer");
-if (allFooters.length > 1) {
-  for (let i = 1; i < allFooters.length; i++) allFooters[i].remove();
-}
-const allMaps = document.querySelectorAll("#findus iframe");
-if (allMaps.length > 1) {
-  for (let i = 1; i < allMaps.length; i++) allMaps[i].remove();
-}
-
-// === REMOVE SCROLL TOP BUTTON ===
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-if (scrollTopBtn) scrollTopBtn.remove();
-</script>
-<!-- ===== FIND US SECTION ===== -->
-<section id="find-us">
-  <h2 class="section-title">Find Us</h2>
-  <p>Visit our restaurant at the location below — we’re waiting to serve you!</p>
-
-  <div class="map-container">
-    <iframe 
-      src="https://www.google.com/maps?q=Vengamamba%20Punjabi%20Dhaba%20Hyderabad&output=embed"
-      width="100%" 
-      height="400" 
-      style="border:0; border-radius: 12px;"
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-  <script>
 // Navbar toggle fix
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.createElement("div");
@@ -750,62 +639,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<style>
-  .menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+<!-- ===== FIND US SECTION ===== -->
+<section id="find-us">
+  <h2 class="section-title">Find Us</h2>
+  <p>Visit our restaurant at the location below — we’re waiting to serve you!</p>
 
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: #fff7f5; /* soft background */
-  position: absolute;
-  top: 60px;
-  left: 0;
-  padding: 0;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  border-top: 2px solid var(--gold);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps?q=Vengamamba%20Punjabi%20Dhaba%20Hyderabad&output=embed"
+      width="100%" 
+      height="400" 
+      style="border:0; border-radius: 12px;"
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
-.nav-links.active {
-  padding: 15px 0;
-  max-height: 400px; /* enough to show all links */
-  opacity: 1;
-}
-
-.nav-links a {
-  color: var(--primary);
-  font-weight: 600;
-  padding: 10px 0;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--gold-bright);
-}
-
-@media (min-width: 769px) {
-  .nav-links {
-    display: flex;
-    max-height: none;
-    opacity: 1;
-    position: static;
-    background: none;
-    box-shadow: none;
-    border: none;
-  }
-}
-</style>
 </body>
 </html>
-
-
-
