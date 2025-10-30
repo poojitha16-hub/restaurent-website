@@ -610,35 +610,7 @@
     }
   </script>
   <script src="script.js"></script>
-  <script>
-// Navbar toggle fix
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.createElement("div");
-  menuToggle.classList.add("menu-toggle");
-  menuToggle.innerHTML = "&#9776;"; // hamburger icon
-
-  const navbar = document.querySelector(".navbar");
-  const navLinks = document.querySelector(".nav-links");
-
-  // Append toggle button only on mobile
-  function handleResize() {
-    if (window.innerWidth <= 768) {
-      if (!navbar.contains(menuToggle)) navbar.appendChild(menuToggle);
-    } else {
-      if (navbar.contains(menuToggle)) navbar.removeChild(menuToggle);
-      navLinks.classList.remove("active"); // close menu if open
-    }
-  }
-
-  handleResize();
-  window.addEventListener("resize", handleResize);
-
-  // Toggle menu open/close
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-});
-</script>
+  
 <!-- ===== FIND US SECTION ===== -->
 <section id="find-us">
   <h2 class="section-title">Find Us</h2>
@@ -659,3 +631,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
